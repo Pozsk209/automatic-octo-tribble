@@ -37,9 +37,22 @@
 
   首先我们查看代码，便于观察函数的调用：
   
+  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/MT1.PNG)
   
   函数首先输入叶节点个数n，并按序输入每个节点的值，注意，值的格式是十六进制小写字符串。
   
-  然后调用build函数进行merkle树构造。
+  此处输入n=8, 叶节点按照顺序为61，62，63，64，65，66，68，67
   
+  然后调用build函数进行merkle树一次性构造。 具体参数意义上文已经给出。
+  
+  trans数组保存了叶子节点在树中的标号。
+  
+  map输入的时候需要使用标号输入，截图中的map(14)意义上等同于map(trans[7]);
+  
+  mcproof 审查值是否在树中。
+  
+  以下是输入和结果展示
+  
+  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/MT2.PNG)
+
   
