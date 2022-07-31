@@ -24,7 +24,11 @@ SM3的长度扩展攻击的实现。使用的SM3为自己实现的，未使用�
 
 该截图是调用代码
 
+![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/Latt1.PNG)
 
-该截图是运行过程，第一行输入Hash值，第二行输入填充并附加的字符串（这里输入的字符串有填充就说明已经知道了salt的长度，所以不用输入salt长度
+该截图是运行过程，第一行输入Hash值，第二行输入填充并附加的字符串（这里输入的字符串有填充就说明已经知道了salt的长度，所以不用输入salt长度.
 
-  
+输出的第一行是对append的填充，第二行是第一组的sm3hash，第三行是修改的向量，最后一行是攻击结果
+
+ ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/Latt2.PNG)
+
