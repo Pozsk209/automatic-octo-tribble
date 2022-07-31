@@ -10,7 +10,7 @@
 
 - 配置NTL库
 
-  现给出详细配置过程。因配置不当而产生的运行错误，一切后果必须由测试方负责。
+  现给出详细配置过程。
   
   第一步，下载，选择11.5.1：
   [https://libntl.org/ ](https://libntl.org/download.html)
@@ -59,7 +59,7 @@
 
      首先我们看调用函数的main函数，图是旧版，按照旧版解释，新版的请看上方，参数有所变化
      
-       ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/Sm21.PNG)
+ ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/Sm21.PNG)
 
     可以看到，为了使用SM2 ，需要提前设置NTL库。
     
