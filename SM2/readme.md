@@ -16,23 +16,23 @@
   [https://libntl.org/ ](https://libntl.org/download.html)
   
   第二步，右键项目--->属性--->C/C++--->常规--->附加包含目录，选择下载目录下 WinNTL11.5.1 下 include 文件夹的路径；
-  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p1.PNG)
+  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p1.png)
   
   第三步，参考下面的方法生成 NTL.lib 文件
   https://blog.csdn.net/qq_32112707/article/details/101267193
   
   第四步，右键项目--->属性-->选择链接器--->常规--->附加库目录，选择 NTL.lib 文件所在的路径。注意VS平台活动环境是否与NTL.lib生成环境相同（编写方测试使用Debug win32）；
   
-  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p2.PNG)
+  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p2.png)
 
   
   第五步，右键项目--->属性-->选择链接器--->输入--->附加依赖项，加上 NTL.lib，选择确定；
   
-  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p3.PNG)
+  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p3.png)
   
   第五步，右键项目--->属性--->配置属性--->C/C++--->常规--->SDL 检查，设置为否；
     
-  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p4.PNG)
+  ![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/p4.png)
 
 
   第六步，保存。
