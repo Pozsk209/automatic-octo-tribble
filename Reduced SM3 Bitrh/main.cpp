@@ -13,6 +13,7 @@ string Randstr(int len)
 }
 int main()
 {
+	srand((unsigned)time(0));
 	string str1, str2, h1, h2;
 	while (true)
 	{
@@ -22,7 +23,7 @@ int main()
 		h2 = SM3(str2);
 		if (h1 == h2)
 		{
-			cout << "��ײ�ɹ�" << endl;
+			cout << "Åö×²³É¹¦" << endl;
 			cout << str1 << endl << str2 << endl;
 
 			break;
