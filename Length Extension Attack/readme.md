@@ -1,37 +1,30 @@
 # 1 代码说明
 
-一棵可以构造10W叶子节点的Merkle Tree。采用动态数组申请。根据RFC文档编写。附带审计路径查找函数和（不）存在性函数。SM3为手写。
-
-这棵树是一次性构造，但是在构造过程中，已经模拟了增加节点的过程。
+SM3的长度扩展攻击的实现。使用的SM3为自己实现的，未使用第三方模块。在此基础上修改某些函数，以达到攻击效果。
 
 # 2 运行指导
 
-- 复制文件到工程中，运行main函数。现在介绍三个函数：用于构造merkle树的build函数；审计路径查找函数map函数；查找节点是否存在的mcproof函数。
+- 复制文件到工程中，运行main函数。
 
-  在main函数中，请输入叶子节点的个数n；随后输入n个叶子节点的值。
-  
-  这棵树的所有节点用数组存储，每个数组元素是一个结构体。
-  
-  - 调用build函数
-  
-  在得知n和叶节点的值后，就可调用，如下：
-  
-  s = build(0, n-1, (n-1) / 2, 0); 
-  
-  s为根节点的SM3 hash值，第一个参数为0，代表根节点，第二个参数为最后一个叶子节点，为n-1，第三个为中位数，计算方式：(0+n-1)/2,第四个参数为0，用于递归时寻找右孩子编号。
-  
-  然后，会输出叶节点在树中对应的标号，这个标号非常重要，在审计路径和存在性证明中，都需要输入标号。
-  
-  - 使用map函数进行审计路径操作
-  
-  输入某个叶子节点在树中的标号（注意看上面一行写的）。map结束后会在mapath数组里存储审计路径，可以输出查看。
-  
-  - 最后是mcproof函数
-  
-    bool mcproof(string value,long long idx , long long broidx[]);
-  
-    输入查找在不在树中的“值”，这个值会被计算hash用于查找在不在树中。对于idx，请输入该值可能位于的叶子节点的标号，不要瞎猜，要找他最有可能出现的节点，即使猜错了也要输入，因为要用idx计算它是左节点还是右节点。最后是你已知的审计路径数组。
-  
+ 随后会需要输入hash值和附加的字符串。
+ 
+ 举例：
+ 
+ hashiv = 66c7f0f462eeedd9d1f2d46bdc10e4e24167c4875cf2f7a2297da02b8f4ba8e0(字符串“abc”的sm3hash，abc的十六进制字符串表示为616263)
+ 
+ append = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa616263 这里用a来填充，后方在加入append的字符串，616263，十六进制长度应该确保为len(data+padding+append)，这就要求随机填充长度为（data+padding）的数据。
+ 
+ 将append传入函数string SM3_attack(string m)中。该函数会对append进行自动分组计算SM3.分组计算的时候会调用iteration_attack函数，这是攻击的核心。
+ 
+ string iteration_attack(string b[], int num) b为分组字符串，num为分组个数。
+ 
+进行攻击的原理为：首先对append进行分组，共有num个分组，对num-1个分组进行sm3运算。当开始计算最后一个分组前，将sm3的向量修改为hashiv的值，由此实现攻击。
 
+# 3 运行截图
+
+该截图是调用代码
+
+
+该截图是运行过程，第一行输入Hash值，第二行输入填充并附加的字符串（这里输入的字符串有填充就说明已经知道了salt的长度，所以不用输入salt长度
 
   
