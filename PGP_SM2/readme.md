@@ -89,7 +89,7 @@ string PGP_vrfy(string cipher, ZZ xB, ZZ yB);
 
 # 3 运行截图
 
-![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/PGP_1.png)
+![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/PGP_1.PNG)
 
 需要设置SM4key，调用Keyextension进行密钥扩展，这是第一操作。必须要有
 
@@ -103,4 +103,4 @@ string PGP_vrfy(string cipher, ZZ xB, ZZ yB);
 
 结果展示：
 
-![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/PGP_2.png)
+![image](https://raw.githubusercontent.com/Pozsk209/automatic-octo-tribble/main/pic/PGP_2.PNG)
